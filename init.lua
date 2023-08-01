@@ -13,3 +13,5 @@ require("colorscheme")
 -- 侧边栏
 require("plugin-config.nvim-tree")
 
+-- 标签页
+require("plugin-config.bufferline")
