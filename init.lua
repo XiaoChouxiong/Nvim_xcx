@@ -15,3 +15,6 @@ require("plugin-config.nvim-tree")
 
 -- 标签页
 require("plugin-config.bufferline")
+
+-- 底部信息显示栏
+require("plugin-config.lualine")
