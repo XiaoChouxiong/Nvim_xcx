@@ -8,7 +8,7 @@ end
 nvim_tree.setup({
     -- 显示 git 状态图标
     git = {
-        enable = true,
+        enable = false,
     },
     -- project plugin 需要这样设置
     update_cwd = true,
@@ -16,11 +16,11 @@ nvim_tree.setup({
         enable = true,
         update_cwd = true,
     },
-    -- 不隐藏 .文件 和 node_modules 文件夹
-    filters = {
-        dotfiles = false,
-        -- custom = { 'node_modules' },
-    },
+--    -- 隐藏 .文件 和 node_modules 文件夹
+--    filters = {
+--        dotfiles = true,
+--        custom = { 'node_modules' },
+--    },
     view = {
         -- 宽度
         width = 40,

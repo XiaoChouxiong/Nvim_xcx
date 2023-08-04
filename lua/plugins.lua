@@ -1,21 +1,30 @@
 local packer = require("packer")
 packer.startup({
     function(use)
-        -- Packer 可以管理自己本身
-        use 'wbthomason/packer.nvim'
-
-        -- 主题
-        use("folke/tokyonight.nvim")
-        use("ellisonleao/gruvbox.nvim")
-
-        -- 侧边栏
-        use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
-
-        -- bufferline
-        use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" }})
-        -- lualine
-        use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
-        use("arkav/lualine-lsp-progress")
+--        -- Packer 可以管理自己本身
+--        use 'wbthomason/packer.nvim'
+--
+--        -- 主题
+--        use("folke/tokyonight.nvim")
+--        use("ellisonleao/gruvbox.nvim")
+--
+--        -- 侧边栏
+--        use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+--
+--        -- bufferline
+--        use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" }})
+--
+--        -- lualine
+--        use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+--        use("arkav/lualine-lsp-progress")
+-- 
+--        -- telescope
+--        use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
+--
+--        -- dashboard-nvim
+--        use("glepnir/dashboard-nvim")
+--        -- project
+--        use("ahmedkhalf/project.nvim")
 
     end,
     config = {
