@@ -18,3 +18,6 @@ require("plugin-config.bufferline")
 
 -- 底部信息显示栏
 require("plugin-config.lualine")
+
+-- vim复制内容到windows剪切板
+require("vim_copy")
