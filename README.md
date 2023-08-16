@@ -1,8 +1,44 @@
 # NVIM配置手册
 
-## 安装WSL2
+## 安装WSL
 
+1、以管理员模式打开Windows 命令提示符
 
+```bash
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
+
+2、升级WSL为WSL2
+
+[适用于 x64 机器的 WSL2 Linux 内核更新包](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+
+3、打开Windows 命令提示符，将WSL2设置为默认
+
+```bash
+wsl --set-default-version 2
+```
+
+## 安装Ubuntu
+
+1、在微软商城中安装Ubuntu22.04
+
+2、启动Ubuntu，输入用户名和密码
+
+3、查看Ubuntu支持的是WSL版本号
+
+```bash
+wsl -l -v
+"""
+  NAME            STATE           VERSION
+* Ubuntu-22.04    Stopped         1
+"""
+```
+
+4、将Ubuntu支持的WSL版本升级为WSL2
+
+```bash
+wsl --set-version Ubuntu-22.04 2
+```
 
 ## 安装Windows Terminal
 
@@ -50,6 +86,59 @@ alias v='nvim'
 """
 ```
 
+## 克隆配置文件
+
+1、创建配置入口目录
+
+```bash
+mkdir ~/.config/
+```
+
+2、从Github上克隆nvim配置文件
+
+```bash
+cd ./.config/
+git clone https://github.com/XiaoChouxiong/Nvim_xcx.git
+mv Nvim_xcx/ nvim
+```
+
+## 安装Git
+
+1、安装编译工具 & 依赖文件
+
+```bash
+sudo apt-get install gcc
+sudo apt-get install make
+sudo apt install zlib1g-dev
+sudo apt install gettext
+```
+
+2、解压安装包
+
+```
+tar -zxvf git-2.41.0.tar.gz
+```
+
+3、配置安装环境 & 编译安装
+
+```bash
+./configure --prefix=/home/ubuntu/Apps/git-2.41.0
+make
+sudo make install
+```
+
+4、配置环境变量
+
+```bash
+vim ~/.profile
+"""
+export PATH=/home/ubuntu/Apps/git-2.41.0:$PATH
+"""
+
+# 刷新环境变量
+source ~/.profile
+```
+
 ## 安装插件管理器
 
 > 插件默认安装位置：~/.local/share/nvim/site/pack/packer/start
@@ -61,11 +150,16 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 
-2、
+2、进入插件管理配置页面 & 安装用到的插件
 
+```bash
+vim /home/ubuntu/.config/nvim/lua/plugins.lua
 
-
-
+# 安装所有用到的插件
+:PackerSync
+# 安装完成后退出插件安装进度页面
+q
+```
 
 ## 主题库
 
