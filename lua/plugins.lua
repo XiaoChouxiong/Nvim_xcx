@@ -1,59 +1,35 @@
 local packer = require("packer")
 packer.startup({
     function(use)
---        -- Packer 可以管理自己本身
---        use 'wbthomason/packer.nvim'
---
---        -- 主题
---        use("folke/tokyonight.nvim")
---        use("ellisonleao/gruvbox.nvim")
---
---        -- 侧边栏
---        use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
---
---        -- bufferline
---        use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" }})
---
---        -- lualine
---        use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
---        use("arkav/lualine-lsp-progress")
--- 
---        -- telescope
---        use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
---
---        -- dashboard-nvim
---        use("glepnir/dashboard-nvim")
---        -- project
---        use("ahmedkhalf/project.nvim")
+        -- Packer 可以管理自己本身
+        use {
+            'wbthomason/packer.nvim',
+            commit = '1d0cf98a561f7fd654c970c49f917d74fafe1530',
+        }
 
+        -- tokyonight主题插件
+        use {
+            'folke/tokyonight.nvim',
+            commit = '1ee11019f8a81dac989ae1db1a013e3d582e2033',
+        }
     end,
+
     config = {
-        -- 最大并发数
         max_jobs = 16,
-        -- 自定义源
-        git = {
-            -- default_url_format = "https://hub.fastgit.xyz/%s",
-            -- default_url_format = "https://mirror.ghproxy.com/https://github.com/%s",
-            -- default_url_format = "https://gitcode.net/mirrors/%s",
-            -- default_url_format = "https://gitclone.com/github.com/%s",
+        display = {
+            open_fn = function()
+                return require("packer.util").float({ border = "single" })
+            end,
         },
-        -- display = {
-        -- 使用浮动窗口显示
-        --   open_fn = function()
-        --     return require("packer.util").float({ border = "single" })
-        --   end,
-        -- },
-    },
+    }
+
 })
 
----- 每次保存 plugins.lua 自动安装插件
---pcall(
---  vim.cmd,
---  [[
---    augroup packer_user_config
---    autocmd!
---    autocmd BufWritePost plugins.lua source <afile> | PackerSync
---    augroup end
---  ]]
---)
-
+-- Packer指令说明o
+-- PackerCompile: 每次改变插件配置时，必须运行此命令或 PackerSync, 重新生成编译的加载文件
+-- PackerClean:   清理没有配置的插件
+-- PackerInstall: 清除，然后安装缺失的插件
+-- PackerUpdate:  清除，然后更新并安装插件
+-- PackerSync:    执行 PackerUpdate 后，再执行 PackerCompile
+-- PackerStatus:  显示插件状态
+-- PackerLoad:    立刻加载 opt 插件

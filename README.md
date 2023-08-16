@@ -1,19 +1,80 @@
-# Nvim_xcx
-PS: XiaoChouxiong 的 NVIM 配置文件
+# NVIM配置手册
 
-# 配置文件位置
-插件位置：~/.local/share/nvim/site/pack/packer/start
-neovim配置文件：~/.config/nvim
+## 安装WSL2
 
-# packer插件需要手动下载源码
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-# 主题库
+
+## 安装Windows Terminal
+
+1、微软应用商店中安装Windows Terminal
+
+2、设置主题：主题--》外观--》深色主题--》One Half Dark
+
+3、删除与VIM冲突的快捷键
+
+4、设置字体为Nerdfonts：设置--》Ubuntu--》外观--》字体--》FiraCode Nerd Font
+
+> 字体下载位置：https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode/Regular
+
+## 安装Neovim
+
+1、安装所需依赖包
+
+```bash
+sudo apt-get install software-properties-common
+```
+
+2、安装neovim
+
+```bash
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt-get update
+sudo apt-get install neovim
+```
+
+3、检查nvim版本
+
+```bash
+# 版本必须在0.7以上，如果版本过低，说明没有成功添加 ppa:neovim-ppa/unstable，需要重新安装
+nvim --version
+```
+
+4、设置vim、vi都是用nvim打开
+
+```bash
+vim ~/.bashrc
+"""
+alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
+"""
+```
+
+## 安装插件管理器
+
+> 插件默认安装位置：~/.local/share/nvim/site/pack/packer/start
+
+1、下载插件管理器代码
+
+```bash
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
+
+2、
+
+
+
+
+
+## 主题库
+
 https://github.com/nvim-treesitter/nvim-treesitter/wiki/Colorschemes
 
-# 侧边栏
+## 侧边栏
 system_open 项，如果想要在 WSL 中用 Windows 系统默认设置打开文件，需要使用 Node.js 全局安装一个 wsl-open 包，使用命令 npm install -g wsl-open
-## 已经安装的插件
+
+已经安装的插件
 
 1、Packer：插件管理工具
 
