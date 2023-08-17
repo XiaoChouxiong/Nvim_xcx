@@ -10,8 +10,15 @@ packer.startup({
         -- tokyonight主题插件
         use {
             'folke/tokyonight.nvim',
-            commit = '1ee11019f8a81dac989ae1db1a013e3d582e2033',
+            --commit = '1ee11019f8a81dac989ae1db1a013e3d582e2033',
+            commit = '9191b4b67499b5759f4da84ca92c9481d35e8278',
         }
+
+--        -- nerdtree 文件树结构
+--        use {
+--            'preservim/nerdtree',
+--            commit = 'c46e12a886b4a6618a9e834c90f6245952567115'
+--        }
     end,
 
     config = {

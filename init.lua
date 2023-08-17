@@ -6,3 +6,6 @@ require("plugins")
 
 -- 设置nvim主题
 require("colorscheme")
+
+-- 快捷键映射
+require("keybindings")
