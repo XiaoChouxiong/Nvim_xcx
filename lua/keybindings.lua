@@ -52,6 +52,10 @@ map("v", ">", ">gv", opt)
 map("v", "J", ":move '>+1<CR>gv-gv", opt)
 map("v", "K", ":move '<-2<CR>gv-gv", opt)
 
+-- nvim 复制快捷键
+map("v", "<C-c>", '"+y', opt)
+map("v", "<C-Insert>", '"+y', opt)
+
 ------------------- 浏览代码快捷键 ---------------------
 -- 上下滚动浏览
 map("n", "<C-j>", "4j", opt)

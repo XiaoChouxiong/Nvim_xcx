@@ -52,6 +52,8 @@ wsl --set-version Ubuntu-22.04 2
 
 > 字体下载位置：https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode/Regular
 
+5、设置光标显示：设置--》Ubuntu--》外观--》光标--》光标形状--》空心旷
+
 ## 安装Neovim
 
 1、安装所需依赖包
@@ -226,7 +228,19 @@ map("n","<C-b>", ":NERDTreeToggle<CR>", opt)
 
 3、快捷键说明
 
+## Nvim复制内容脚本
 
+1、这个不属于插件，是使用lua编写的一段脚本，用于实现nvim复制内容到windows下的粘贴板上
+
+脚本位置：/home/ubuntu/.config/nvim/lua/vim_copy.lua
+
+2、定义复制快捷键
+
+```bash
+# 在视图模式下，使用CTRL + c 或 CTRL + Insert实现内容复制
+map("v", "<C-c>", '"+y', opt)
+map("v", "<C-Insert>", '"+y', opt)
+```
 
 ## *plugin/packer_compiled.lua
 
