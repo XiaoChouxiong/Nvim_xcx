@@ -64,4 +64,5 @@ map("n", "<C-d>", "9j", opt)
 map("n", "q", ":q<CR>", opt)
 map("n", "qq", ":q!<CR>", opt)
 
-
+------------------ nerdtree 目录树快捷键 ------------------------
+map("n", "<C-b>", ":NERDTreeToggle<CR>", opt)

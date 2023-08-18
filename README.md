@@ -161,18 +161,80 @@ vim /home/ubuntu/.config/nvim/lua/plugins.lua
 q
 ```
 
-## 主题库
+3、插件管理器指令说明
 
-https://github.com/nvim-treesitter/nvim-treesitter/wiki/Colorschemes
+```bash
+PackerCompile: 每次改变插件配置时，必须运行此命令或 PackerSync, 重新生成编译的加载文件
+PackerClean:   清理没有配置的插件
+PackerInstall: 清除，然后安装缺失的插件
+PackerUpdate:  清除，然后更新并安装插件
+PackerSync:    执行 PackerUpdate 后，再执行 PackerCompile
+PackerStatus:  显示插件状态
+PackerLoad:    立刻加载 opt 插件
+```
+
+## NVIM主题
+
+更多主题浏览：https://github.com/nvim-treesitter/nvim-treesitter/wiki/Colorschemes
+
+修改主题方式：
+
+1、使用Packer插件下载想使用的主题
+
+2、设置nvim启动主题
+
+```bash
+# 编辑主题配置文件
+vim ~/.config/nvim/lua/colorscheme.lua
+
+# 修改colorscheme变量，指定下载好的主题
+```
 
 ## 侧边栏
-system_open 项，如果想要在 WSL 中用 Windows 系统默认设置打开文件，需要使用 Node.js 全局安装一个 wsl-open 包，使用命令 npm install -g wsl-open
+1、定义侧边栏快捷键
 
-已经安装的插件
+```bash
+vim ~/.config/nvim/lua/keybindings.lua
 
-1、Packer：插件管理工具
+# 设置CTRL+b打开/关闭侧边栏
+map("n","<C-b>", ":NERDTreeToggle<CR>", opt)
+```
 
-2、主题
+2、指令说明
+
+```bash
+# 好用指令说明
+:NERDTree [<start-directory> | <bookmark>]			打开 侧边栏
+	-- 可以指定目录/书签，NERDTree将其作为根目录打开
+:NERDTreeToggle		打开/关闭 侧边栏
+:NERDTreeCWD		将NERDTree根目录更改为当前工作目录
+
+:Bookmark [<name>]	将当前节点标记为<name>
+	-- 如果已经有一个<name>书签，原节点将被覆盖
+	-- 如果没有提供<name>，则默认为文件或目录名称
+	-- 一个节点可定义多个标签
+:OpenBookmark <name> 	打开指定的书签
+:ClearBookmarks [<bookmarks>] 	清除节点书签
+	-- 如果指定了标签，则删除节点该书签
+	-- 如果没有指定标签，则删除节点所有书签
+:EditBookmarks		打开书签文件进行手动编辑
+
+# 特别指令说明
+:ReadBookmarks		重新加载书签
+	-- 当存在无效书签时，手边编辑完书签后，需要指定该指令，否则脚本会报错。
+```
+
+3、快捷键说明
+
+
+
+## *plugin/packer_compiled.lua
+
+packer_compiled.lua文件是通过执行packer插件的compile命令生成的，它会根据你在nvim配置文件中定义的插件列表和配置进行处理。该文件包含了插件的配置信息和加载顺序，以及一些性能优化的指令。
+
+生成packer_compiled.lua文件后，当你重新打开nvim时，packer插件会根据这个文件来加载和配置插件，而不需要再次解析和处理nvim配置文件。这样可以大大减少插件加载的时间，提高nvim的启动速度。
+
+总结来说，packer_compiled.lua文件是用于加速插件加载的，通过预先处理和保存插件配置信息，避免了每次启动nvim时都重新解析和处理nvim配置文件的开销。
 
 
 
