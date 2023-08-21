@@ -19,6 +19,13 @@ packer.startup({
             'preservim/nerdtree',
             commit = 'c46e12a886b4a6618a9e834c90f6245952567115'
         }
+
+        -- bufferline 标签缓冲区
+        use {
+            'akinsho/bufferline.nvim',
+            commit = '417b303328118b6d836ae330142e88771c48a8a3',
+            requires = 'nvim-tree/nvim-web-devicons'
+        }
     end,
 
     config = {

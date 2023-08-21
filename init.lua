@@ -12,3 +12,6 @@ require("keybindings")
 
 -- vim复制内容到windows剪切板
 require("nvim_copy")
+
+-- 
+require("plugin-config.bufferline")
