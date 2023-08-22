@@ -13,5 +13,8 @@ require("keybindings")
 -- vim复制内容到windows剪切板
 require("nvim_copy")
 
--- 
+-- 顶部标签页配置信息
 require("plugin-config.bufferline")
+
+-- 侧边栏配置信息
+require("plugin-config.nerdtree")

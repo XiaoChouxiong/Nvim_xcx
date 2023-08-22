@@ -302,6 +302,10 @@ A		最大化和最小化侧边栏窗口
 ?		显示快速帮助
 ```
 
+4、设置NERDTree的快捷键：~/.config/nvim/lua/keybindings.lua
+
+5、NERDTree的配置文件：~/.config/nvim/lua/plugin-config/nerdtree.lua
+
 ## Nvim复制内容脚本
 
 1、这个不属于插件，是使用lua编写的一段脚本，用于实现nvim复制内容到windows下的粘贴板上
