@@ -24,7 +24,11 @@ packer.startup({
         use {
             'akinsho/bufferline.nvim',
             commit = '417b303328118b6d836ae330142e88771c48a8a3',
-            requires = 'nvim-tree/nvim-web-devicons'
+            requires = {'nvim-tree/nvim-web-devicons',
+                        commit = 'cfc8824cc1db316a276b36517f093baccb8e799a',
+                        'moll/vim-bbye',
+                        commit = '25ef93ac5a87526111f43e5110675032dbcacf56'
+                        }
         }
     end,
 

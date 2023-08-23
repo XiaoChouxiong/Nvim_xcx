@@ -306,6 +306,23 @@ A		最大化和最小化侧边栏窗口
 
 5、NERDTree的配置文件：~/.config/nvim/lua/plugin-config/nerdtree.lua
 
+## 书签页
+
+1、定义书签页的快捷键
+
+```lua
+-- 左右Tab切换
+map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
+map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
+-- 关闭
+map("n", "<C-w>", ":Bdelete!<CR>", opt)
+map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
+map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
+map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
+```
+
+2、在bufferline的配置文件中，定义了关闭标签采用vim-bbye插件提供的指令
+
 ## Nvim复制内容脚本
 
 1、这个不属于插件，是使用lua编写的一段脚本，用于实现nvim复制内容到windows下的粘贴板上
