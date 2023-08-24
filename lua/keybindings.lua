@@ -71,7 +71,7 @@ map("n", "qq", ":q!<CR>", opt)
 ------------------ nerdtree 目录树快捷键 ------------------------
 map("n", "<C-b>", ":NERDTreeToggle<CR>", opt)
 
------------------- bufferline 文件
+------------------ bufferline 文件书签快捷键 ---------------------
 -- 左右Tab切换
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
@@ -81,3 +81,9 @@ map("n", "<C-w>", ":Bdelete!<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
+
+------------------ telescope 模糊查找文件快捷键 ---------------------
+-- 查找文件
+map("n", "<C-p>", ":Telescope find_files<CR>", opt)
+-- 全局搜索
+map("n", "<C-f>", ":Telescope live_grep<CR>", opt)

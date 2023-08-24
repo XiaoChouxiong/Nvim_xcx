@@ -306,9 +306,9 @@ A		最大化和最小化侧边栏窗口
 
 5、NERDTree的配置文件：~/.config/nvim/lua/plugin-config/nerdtree.lua
 
-## 书签页
+## 标签页
 
-1、定义书签页的快捷键
+1、定义标签页的快捷键
 
 ```lua
 -- 左右Tab切换
@@ -322,6 +322,49 @@ map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 ```
 
 2、在bufferline的配置文件中，定义了关闭标签采用vim-bbye插件提供的指令
+
+## 模糊查找
+
+1、插件内置快捷键
+
+```bash
+CTRL + c		退出telescope界面
+CTRL + p		上一条选项
+TAB				上一条选项
+CTRL + n		下一条选项
+SHIFT + TAB		下一条选项
+CTRL + u		上翻浏览页
+CTRL + d		下翻浏览页
+```
+
+2、定义模糊查找的快捷键
+
+```lua
+-- 查找文件
+map("n", "<C-p>", ":Telescope find_files<CR>", opt)
+-- 全局搜索
+map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
+```
+
+3、指令说明
+
+```bash
+# 文件选择器
+:Telescope find_files		列出当前工作目录中的文件
+:Telescope live_grep		在当前工作目录中搜索字符串并在键入时实时获取结果
+
+# vim选择器
+:Telescope keymaps			列出正常模式键盘映射
+
+# git选择器
+:Telescope git_commits		列出工作目录的提交历史记录
+:Telescope git_bcommits		列出当前缓冲区的提交历史记录
+:Telescope git_branches		列出所有分支，包括日志预览
+:Telescope git_status		列出每个文件的当前更改
+:Telescope git_stash		列出当前存储库中的隐藏项目
+```
+
+
 
 ## Nvim复制内容脚本
 
