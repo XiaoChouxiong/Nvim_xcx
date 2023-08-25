@@ -364,13 +364,30 @@ map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
 :Telescope git_stash		列出当前存储库中的隐藏项目
 ```
 
+## 底部文件状态栏
 
+1、插件配置说明
+
+```lua
+-- 主要的配置说明
+1、将文件状态栏主题与nvim主题调整一致：tokyonight
+2、定义信息栏显示内容
+```
+
+2、特别配置说明（lua/basic.lua）
+
+```bash
+# 默认情况下安装该插件时，命令行应该配置为两行显示
+# 但是不知道哪个插件自动将命令行扩展了一行，导致成为三行显示命令行
+# 因此需要将基本配置中命令行设置为一行显示，以达到两行显示的效果
+vim.o.cmdheight = 1
+```
 
 ## Nvim复制内容脚本
 
 1、这个不属于插件，是使用lua编写的一段脚本，用于实现nvim复制内容到windows下的粘贴板上
 
-脚本位置：/home/ubuntu/.config/nvim/lua/vim_copy.lua
+脚本位置：/home/ubuntu/.config/nvim/lua/nvim_copy.lua
 
 2、定义复制快捷键
 
@@ -387,8 +404,6 @@ packer_compiled.lua文件是通过执行packer插件的compile命令生成的，
 生成packer_compiled.lua文件后，当你重新打开nvim时，packer插件会根据这个文件来加载和配置插件，而不需要再次解析和处理nvim配置文件。这样可以大大减少插件加载的时间，提高nvim的启动速度。
 
 总结来说，packer_compiled.lua文件是用于加速插件加载的，通过预先处理和保存插件配置信息，避免了每次启动nvim时都重新解析和处理nvim配置文件的开销。
-
-
 
 ## LazyVim插件参考
 

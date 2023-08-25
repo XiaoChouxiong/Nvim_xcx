@@ -19,7 +19,7 @@ packer.startup({
             'preservim/nerdtree',
             commit = 'c46e12a886b4a6618a9e834c90f6245952567115'
         }
-
+ 
         -- bufferline 标签缓冲区
         use {
             'akinsho/bufferline.nvim',
@@ -39,6 +39,16 @@ packer.startup({
             requires = {
                 'nvim-lua/plenary.nvim',
                 commit = '267282a9ce242bbb0c5dc31445b6d353bed978bb'
+            }
+        }
+
+        -- lualine 底部文件信息
+        use {
+            'nvim-lualine/lualine.nvim',
+            commit = '45e27ca739c7be6c49e5496d14fcf45a303c3a63',
+            requires = {
+                'arkav/lualine-lsp-progress',
+                commit = '56842d097245a08d77912edf5f2a69ba29f275d7'
             }
         }
 

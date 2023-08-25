@@ -18,3 +18,6 @@ require("plugin-config.bufferline")
 
 -- 侧边栏配置信息
 require("plugin-config.nerdtree")
+
+-- 底部文件状态栏
+require("plugin-config.lualine")
