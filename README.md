@@ -399,6 +399,26 @@ map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
 vim.o.cmdheight = 1
 ```
 
+## 代码高亮
+
+1、使用Packer安装该插件时，由于第一次无法识别到该插件的命令，而报错无法执行`更新支持的语言解析器`，重新执行一次`PackerSync`即可
+
+2、指令说明
+
+```bash
+# 查看 language parsers 列表与安装状态
+:TSInstallInfo
+
+# 更新已安装的解析器
+:TSUpdate
+
+# 安装解析器
+:TSInstall {language}
+
+# 卸载解析器
+:TSUninstall  {language}
+```
+
 ## Nvim复制内容脚本
 
 1、这个不属于插件，是使用lua编写的一段脚本，用于实现nvim复制内容到windows下的粘贴板上

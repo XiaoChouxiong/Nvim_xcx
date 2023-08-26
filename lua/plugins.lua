@@ -52,6 +52,13 @@ packer.startup({
             }
         }
 
+        -- treesitter 对文件进行解析，高亮关键词
+        use {
+            'nvim-treesitter/nvim-treesitter',
+            commit = 'cb74c1c5aefd8b903f1b547d08d4df42be07aa2a',
+            run = ":TSUpdate"
+        }
+
     end,
 
     config = {

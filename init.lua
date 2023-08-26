@@ -1,6 +1,6 @@
 -- 基础配置
 require("basic")
-
+ 
 -- Packer 插件管理
 require("plugins")
 
@@ -21,3 +21,6 @@ require("plugin-config.nerdtree")
 
 -- 底部文件状态栏
 require("plugin-config.lualine")
+
+-- 文件高亮解析器
+require("plugin-config.nvim-treesitter")
