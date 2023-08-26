@@ -325,7 +325,23 @@ map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 
 ## 模糊查找
 
-1、插件内置快捷键
+1、安装插件依赖
+
+```bash
+# 检查依赖情况，我选择将plenary与ripgrep集成到插件中
+:checkhealth telescope
+"""
+- OK plenary installed.
+- OK rg: found ripgrep.
+"""
+
+# 安装repgrep
+sudo add-apt-repository ppa:x4121/ripgrep
+sudo apt-get update
+sudo apt install ripgrep
+```
+
+2、插件内置快捷键
 
 ```bash
 CTRL + c		退出telescope界面
@@ -337,7 +353,7 @@ CTRL + u		上翻浏览页
 CTRL + d		下翻浏览页
 ```
 
-2、定义模糊查找的快捷键
+3、定义模糊查找的快捷键
 
 ```lua
 -- 查找文件
@@ -346,7 +362,7 @@ map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
 ```
 
-3、指令说明
+4、指令说明
 
 ```bash
 # 文件选择器
