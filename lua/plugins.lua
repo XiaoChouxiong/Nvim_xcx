@@ -59,6 +59,18 @@ packer.startup({
             run = ":TSUpdate"
         }
 
+        --------------------- LSP ------------------------------
+        -- 安装Language Server
+        use {
+            "williamboman/nvim-lsp-installer",
+            commit = '17e0bfa5f2c8854d1636fcd036dc8284db136baa'
+        }
+        -- 配置文件
+        use {
+            "neovim/nvim-lspconfig",
+            commit = 'a27356f1ef9c11e1f459cc96a3fcac5c265e72d6'
+        }
+
     end,
 
     config = {
