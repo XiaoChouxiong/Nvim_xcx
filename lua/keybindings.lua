@@ -87,3 +87,10 @@ map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 -- 全局搜索
 map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
+
+------------------ nvim-treesitter 语言解析插件 ---------------------
+-- 全文选中
+map("n", "<C-a>", 'ggvG<CR>', opt)
+-- 代码块折叠快捷键
+map("n", "<C-[>", 'zo', opt)
+map("n", "<C-]>", 'zc', opt)
