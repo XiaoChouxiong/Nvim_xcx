@@ -420,13 +420,13 @@ vim.o.cmdheight = 1
 :TSInstall {language}
 
 # 卸载解析器
-:TSUninstall  {language}
+:TSUninstall {language}
 
 # 代码高亮开关
 :TSBufToggle highlight
 ```
 
-3、特别说明：markdown文件无法正常使用语法高亮，因此我在配置文件中取消的markdown文件的代码高亮，但是结果为报错内容消失，但是markdown正常高亮显示
+3、特别说明：markdown、bash文件无法正常使用语法高亮，因此我在配置文件中取消了指定文件类型的代码高亮
 
 ### 增量选择
 
