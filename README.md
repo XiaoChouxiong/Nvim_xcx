@@ -493,6 +493,15 @@ packer_compiled.lua文件是通过执行packer插件的compile命令生成的，
 
 总结来说，packer_compiled.lua文件是用于加速插件加载的，通过预先处理和保存插件配置信息，避免了每次启动nvim时都重新解析和处理nvim配置文件的开销。
 
+## 特：NVIM内置快捷键
+
+```bash
+# 光标
+CTRL + *	文本内单词匹配跳转
+gg			光标跳转到文首
+G			光标跳转到文尾
+```
+
 ## LazyVim插件参考
 
 1. `LazyVim`：一个基于 Lua 的插件管理器，用于管理和加载其他插件。
