@@ -485,6 +485,10 @@ map("v", "<C-c>", '"+y', opt)
 map("v", "<C-Insert>", '"+y', opt)
 ```
 
+## LSP语言包管理工具
+
+sudo apt-get install unzip
+
 ## *plugin/packer_compiled.lua
 
 packer_compiled.lua文件是通过执行packer插件的compile命令生成的，它会根据你在nvim配置文件中定义的插件列表和配置进行处理。该文件包含了插件的配置信息和加载顺序，以及一些性能优化的指令。
@@ -500,6 +504,11 @@ packer_compiled.lua文件是通过执行packer插件的compile命令生成的，
 CTRL + *	文本内单词匹配跳转
 gg			光标跳转到文首
 G			光标跳转到文尾
+w			光标以单词进行跳转
+
+# 编辑
+cw			替换单词
+ci"			替换双引号中的内容(双引号也可以换为其他符号)
 ```
 
 ## LazyVim插件参考

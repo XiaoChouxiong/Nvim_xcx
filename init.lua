@@ -24,3 +24,6 @@ require("plugin-config.lualine")
 
 -- 文件高亮解析器
 require("plugin-config.nvim-treesitter")
+
+-- Mason LSP语言包管理器
+require("plugin-config.mason")
