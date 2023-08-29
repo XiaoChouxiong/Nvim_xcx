@@ -60,13 +60,14 @@ packer.startup({
         }
 
         --------------------- LSP ------------------------------
-        -- 安装Language Server
         use {
-            "williamboman/nvim-lsp-installer",
-            commit = '17e0bfa5f2c8854d1636fcd036dc8284db136baa'
-        }
+        -- Language Server 管理器
+            "williamboman/mason.nvim",
+            commit = 'c811fbf09c7642eebb37d6694f1a016a043f6ed3',
+        -- mason.nvim 和 nvim-lspconfig 之间的互操作
+            "williamboman/mason-lspconfig.nvim",
+            commit = 'dfdd771b792fbb4bad8e057d72558255695aa1a7',
         -- 配置文件
-        use {
             "neovim/nvim-lspconfig",
             commit = 'a27356f1ef9c11e1f459cc96a3fcac5c265e72d6'
         }
