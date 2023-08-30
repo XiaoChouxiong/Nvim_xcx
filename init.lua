@@ -27,3 +27,6 @@ require("plugin-config.nvim-treesitter")
 
 -- Mason LSP语言包管理器
 require("plugin-config.mason")
+
+-- mason-lspconfig LSP-config与mason间的配置插件
+require("plugin-config.mason-lspconfig")

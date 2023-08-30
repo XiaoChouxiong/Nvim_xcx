@@ -1,0 +1,44 @@
+[
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Werror",
+            "-I./funs",
+            "-o",
+            "main.o",
+            "main.c"
+        ],
+        "directory": "/home/ubuntu/codefile/C/test",
+        "file": "main.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Werror",
+            "-I./funs",
+            "-o",
+            "funs/fun2.o",
+            "funs/fun2.c"
+        ],
+        "directory": "/home/ubuntu/codefile/C/test",
+        "file": "funs/fun2.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Werror",
+            "-I./funs",
+            "-o",
+            "fun1.o",
+            "fun1.c"
+        ],
+        "directory": "/home/ubuntu/codefile/C/test",
+        "file": "fun1.c"
+    }
+]

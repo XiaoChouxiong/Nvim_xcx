@@ -25,10 +25,14 @@ packer.startup({
             'akinsho/bufferline.nvim',
             commit = '417b303328118b6d836ae330142e88771c48a8a3',
             requires = {
-                'nvim-tree/nvim-web-devicons',
-                commit = 'cfc8824cc1db316a276b36517f093baccb8e799a',
-                'moll/vim-bbye',
-                commit = '25ef93ac5a87526111f43e5110675032dbcacf56'
+                {
+                    'nvim-tree/nvim-web-devicons',
+                    commit = 'cfc8824cc1db316a276b36517f093baccb8e799a',
+                },
+                {
+                    'moll/vim-bbye',
+                    commit = '25ef93ac5a87526111f43e5110675032dbcacf56'
+                }
             }
         }
 
@@ -61,15 +65,21 @@ packer.startup({
 
         --------------------- LSP ------------------------------
         use {
-        -- Language Server 管理器
-            "williamboman/mason.nvim",
-            commit = 'c811fbf09c7642eebb37d6694f1a016a043f6ed3',
-        -- mason.nvim 和 nvim-lspconfig 之间的互操作
-            "williamboman/mason-lspconfig.nvim",
-            commit = 'dfdd771b792fbb4bad8e057d72558255695aa1a7',
-        -- 配置文件
-            "neovim/nvim-lspconfig",
-            commit = 'a27356f1ef9c11e1f459cc96a3fcac5c265e72d6'
+            {
+                -- Language Server 管理器
+                "williamboman/mason.nvim",
+                commit = 'c811fbf09c7642eebb37d6694f1a016a043f6ed3',
+            },
+            {
+                -- mason.nvim 和 nvim-lspconfig 之间的互操作
+                "williamboman/mason-lspconfig.nvim",
+                commit = 'dfdd771b792fbb4bad8e057d72558255695aa1a7',
+            },
+            {
+                -- 配置文件
+                "neovim/nvim-lspconfig",
+                commit = 'a27356f1ef9c11e1f459cc96a3fcac5c265e72d6'
+            }
         }
 
     end,
