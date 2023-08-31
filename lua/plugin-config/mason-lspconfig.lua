@@ -24,11 +24,10 @@ mason_lspconfig.setup({
             }
         end,
         ["clangd"] = function ()
+            local cmd = { "clangd" }
             local clangd_args = {
                 "--background-index",       -- 用于后台索引：后台持续地分析代码
-                "--include-directory=/home/ubuntu/codefile/C/test/compile_commands.json"
             }
-            local cmd = { "clangd" }
 
             -- 将命令添加到cmd列表中
             for _, arg in ipairs(clangd_args) do

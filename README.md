@@ -485,9 +485,62 @@ map("v", "<C-c>", '"+y', opt)
 map("v", "<C-Insert>", '"+y', opt)
 ```
 
-## LSP语言包管理工具
+## LSP语言包
 
+1、通过三个插件管理LSP语言服务
+
+​	语言包管理器：mason
+
+​	mason与lspconfig的中间配置插件：mason-lspconfig
+
+​	语言包配置插件：lspconfig
+
+2、安装插件依赖工具
+
+```bash
 sudo apt-get install unzip
+```
+
+3、快捷键说明
+
+```bash
+<leader>rn			整体修改代码中的变量名
+
+gd					跳转到定义
+gh					显示提示信息
+gD					跳转到声明
+gr					查看项目中所有用到该 变量/函数/类 的地方
+                           
+gp					将当前行的报错信息，以浮动窗口的方式显示 
+gk					将光标定位到上一个诊断位置
+gj					将光标定位到下一个诊断位置
+```
+
+4、语言服务安装
+
+```bash
+:Mason				# 语言包管理界面
+i					# 安装语言包
+X					# 卸载语言包
+```
+
+### clangd（C语言服务）
+
+1、安装编译解析工具
+
+```bash
+sudo apt-get install bear
+```
+
+2、生成项目的项目结构解析文件
+
+```bash
+# 可以修改Makefile，项目中所有用到的文件都编译到，这样便可以得到一个比较全的项目结构解析文件
+make clean;bear make
+
+# 项目根目录下生成了compile_commands.json
+# 检查该文件是否有错误的地方，尤其是使用的编译器，可以修改为绝对路径
+```
 
 ## *plugin/packer_compiled.lua
 
@@ -509,6 +562,9 @@ w			光标以单词进行跳转
 # 编辑
 cw			替换单词
 ci"			替换双引号中的内容(双引号也可以换为其他符号)
+
+# 标签
+CTRL + o	打开上次关闭nvim时的标签
 ```
 
 ## LazyVim插件参考

@@ -94,3 +94,15 @@ map("n", "<C-a>", 'ggvG<CR>', opt)
 -- 代码块折叠快捷键
 map("n", "<C-[>", 'zo', opt)
 map("n", "<C-]>", 'zc', opt)
+
+------------------ nvim-lspconfig 语言服务配置 -----------------------
+map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)    -- 整体修改代码中的变量名
+
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)        -- 跳转到定义
+map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)             -- 显示提示信息
+map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)       -- 跳转到声明
+map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)        -- 查看项目中所有用到该 变量/函数/类 的地方
+
+map("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)     -- 将当前行的报错信息，以浮动窗口的方式显示
+map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)      -- 将光标定位到上一个诊断位置
+map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)      -- 将光标定位到下一个诊断位置
