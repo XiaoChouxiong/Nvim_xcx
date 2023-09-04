@@ -55,6 +55,7 @@ map("v", "K", ":move '<-2<CR>gv-gv", opt)
 -- nvim 复制快捷键
 map("v", "<C-c>", '"+y', opt)
 map("v", "<C-Insert>", '"+y', opt)
+map("v", "<C-x>", '"+d', opt)
 
 ------------------- 浏览代码快捷键 ---------------------
 -- 上下滚动浏览
@@ -106,3 +107,8 @@ map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)        -- 查看项
 map("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)     -- 将当前行的报错信息，以浮动窗口的方式显示
 map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)      -- 将光标定位到上一个诊断位置
 map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)      -- 将光标定位到下一个诊断位置
+
+------------------ vim-commentary 代码注释快捷键 -----------------------
+map("n", "<leader>/", '<Plug>CommentaryLine', opt)
+map("v", "<leader>/", '<Plug>CommentaryLine', opt)
+map("v", "<leader>/", '<Plug>Commentary', opt)

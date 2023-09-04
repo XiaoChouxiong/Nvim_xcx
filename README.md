@@ -483,6 +483,9 @@ CTRL+[	打开折叠代码块
 # 在视图模式下，使用CTRL + c 或 CTRL + Insert实现内容复制
 map("v", "<C-c>", '"+y', opt)
 map("v", "<C-Insert>", '"+y', opt)
+
+# 在视图模式下，使用CTRL + x 实现内容剪切
+map("v", "<C-x>", '"+d', opt)
 ```
 
 ## LSP语言包
@@ -547,6 +550,14 @@ make clean;bear make
 
 # 项目根目录下生成了compile_commands.json
 # 检查该文件是否有错误的地方，尤其是使用的编译器，可以修改为绝对路径
+```
+
+## 代码注释
+
+1、快捷键说明
+
+```bash
+<leader>/		代码 行注释/块注释
 ```
 
 ## *plugin/packer_compiled.lua

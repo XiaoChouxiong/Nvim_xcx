@@ -82,6 +82,11 @@ packer.startup({
             }
         }
 
+        -- commentary 代码注释插件
+        use {
+            "tpope/vim-commentary",
+            commit = 'e87cd90dc09c2a203e13af9704bd0ef79303d755'
+        }
     end,
 
     config = {
