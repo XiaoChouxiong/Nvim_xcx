@@ -5,6 +5,12 @@ if not status then
     return
 end
 
+-- 获取缓冲区文件的相对路径
+local function get_file_path()
+    local path = vim.fn.expand('%')
+    return path
+end
+
 lualine.setup({
     options = {
         theme = "tokyonight",
@@ -15,7 +21,7 @@ lualine.setup({
     extensions = {"nerdtree"},
     sections = {
         lualine_c = {
-            "filename",
+            get_file_path,
             {
                 "lsp_progress",
                 spinner_symbols = { " ", " ", " ", " ", " ", " " },
