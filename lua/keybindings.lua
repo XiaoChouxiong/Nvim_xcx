@@ -112,3 +112,8 @@ map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)      -- 将光标
 map("n", "<leader>/", '<Plug>CommentaryLine', opt)
 map("v", "<leader>/", '<Plug>CommentaryLine', opt)
 map("v", "<leader>/", '<Plug>Commentary', opt)
+
+------------------ 获取缓冲区文件路径快捷键 -------------------------
+-- map("n", "<leader>P", [[:let @+ = $PWD | echo $PWD<CR>]], opt)                   -- 复制项目绝对路径到Windows剪切板，并打印
+map("n", "<leader>P", [[:let @+ = expand('%') | echo expand('%')<CR>]], opt)        -- 复制缓冲区相对路径到Windows剪切板，并打印
+map("n", "<leader>p", [[:let @+ = expand('%:p') | echo expand('%:p')<CR>]], opt)    -- 复制缓冲区绝对路径到Windows剪切板，并打印
