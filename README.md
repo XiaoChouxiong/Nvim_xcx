@@ -560,6 +560,22 @@ make clean;bear make
 <leader>/		代码 行注释/块注释
 ```
 
+## 缓冲区文件路径拷贝
+
+1、快捷键定义
+
+```bash
+# 按照个人习惯定义的快捷键
+-- 复制项目绝对路径到Windows剪切板，并打印
+-- map("n", "<leader>P", [[:let @+ = $PWD | echo $PWD<CR>]], opt)
+
+-- 复制缓冲区相对路径到Windows剪切板，并打印
+map("n", "<leader>P", [[:let @+ = expand('%') | echo expand('%')<CR>]], opt)
+
+-- 复制缓冲区绝对路径到Windows剪切板，并打印
+map("n", "<leader>p", [[:let @+ = expand('%:p') | echo expand('%:p')<CR>]], opt)
+```
+
 ## *plugin/packer_compiled.lua
 
 packer_compiled.lua文件是通过执行packer插件的compile命令生成的，它会根据你在nvim配置文件中定义的插件列表和配置进行处理。该文件包含了插件的配置信息和加载顺序，以及一些性能优化的指令。
