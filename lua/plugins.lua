@@ -87,6 +87,12 @@ packer.startup({
             "tpope/vim-commentary",
             commit = 'e87cd90dc09c2a203e13af9704bd0ef79303d755'
         }
+
+        -- gitgutter git文件修改标记符
+        use {
+            "airblade/vim-gitgutter",
+            commit = 'f7b97666ae36c7b3f262f3190dbcd7033845d985'
+        }
     end,
 
     config = {
