@@ -93,6 +93,49 @@ packer.startup({
             "airblade/vim-gitgutter",
             commit = 'f7b97666ae36c7b3f262f3190dbcd7033845d985'
         }
+
+        ------------------- 测试插件
+        -- 代码补全
+        use {
+            {
+                -- 补全引擎
+                "hrsh7th/nvim-cmp",
+                commit = '5dce1b778b85c717f6614e3f4da45e9f19f54435'
+            },
+            {
+                -- snippet 引擎
+                "hrsh7th/vim-vsnip",
+                commit = '7753ba9c10429c29d25abfd11b4c60b76718c438'
+            },
+            {
+                -- 补全源
+                {
+                    "hrsh7th/cmp-vsnip",
+                    commit = '989a8a73c44e926199bfd05fa7a516d51f2d2752'
+                },
+                {
+                    "hrsh7th/cmp-nvim-lsp",
+                    commit = '44b16d11215dce86f253ce0c30949813c0a90765'
+                },
+                {
+                    "hrsh7th/cmp-buffer",
+                    commit = '3022dbc9166796b644a841a02de8dd1cc1d311fa'
+                },
+                {
+                    "hrsh7th/cmp-path",
+                    commit = '91ff86cd9c29299a64f968ebb45846c485725f23'
+                },
+                {
+                    "hrsh7th/cmp-cmdline",
+                    commit = '8ee981b4a91f536f52add291594e89fb6645e451'
+                },
+            },
+            {
+                -- 常见编程语言代码段
+                "rafamadriz/friendly-snippets",
+                commit = 'ebf6d6e83494cdd88a54a429340256f4dbb6a052'
+            }
+        }
     end,
 
     config = {

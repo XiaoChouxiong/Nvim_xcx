@@ -2,7 +2,8 @@
 local map = vim.api.nvim_set_keymap
 -- 复用 opt 参数
 local opt = {noremap = true, silent = true }
-
+-- 插件快捷键
+local pluginKeys = {}
 -------------------- Leader Key -----------------------
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -117,3 +118,79 @@ map("v", "<leader>/", '<Plug>Commentary', opt)
 -- map("n", "<leader>P", [[:let @+ = $PWD | echo $PWD<CR>]], opt)                   -- 复制项目绝对路径到Windows剪切板，并打印
 map("n", "<leader>P", [[:let @+ = expand('%') | echo expand('%')<CR>]], opt)        -- 复制缓冲区相对路径到Windows剪切板，并打印
 map("n", "<leader>p", [[:let @+ = expand('%:p') | echo expand('%:p')<CR>]], opt)    -- 复制缓冲区绝对路径到Windows剪切板，并打印
+
+------------------ nvim-cmp 自动补全快捷键 -------------------------
+-- nvim-cmp 自动补全
+pluginKeys.cmp = function(cmp)
+
+    local feedkey = function(key, mode)
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+    end
+
+    local has_words_before = function()
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    end
+
+    return {
+        -- 出现补全
+        ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
+        -- 取消
+        ["<A-,>"] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close()
+        }),
+        -- 上一个
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        -- 下一个
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        -- 确认
+        ["<CR>"] = cmp.mapping.confirm({
+            select = true,
+            behavior = cmp.ConfirmBehavior.Replace
+        }),
+        -- 如果窗口内容太多，可以滚动
+        ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
+        ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
+
+
+        -- 自定义代码段跳转到下一个参数
+        ["<C-l>"] = cmp.mapping(function(_)
+            if vim.fn["vsnip#available"](1) == 1 then
+                feedkey("<Plug>(vsnip-expand-or-jump)", "")
+            end
+        end, {"i", "s"}),
+
+        -- 自定义代码段跳转到上一个参数
+        ["<C-h>"] = cmp.mapping(function()
+            if vim.fn["vsnip#jumpable"](-1) == 1 then
+                feedkey("<Plug>(vsnip-jump-prev)", "")
+            end
+        end, {"i", "s"}),
+
+        -- Super Tab
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif vim.fn["vsnip#available"](1) == 1 then
+                feedkey("<Plug>(vsnip-expand-or-jump)", "")
+            elseif has_words_before() then
+                cmp.complete()
+            else
+                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+            end
+        end, {"i", "s"}),
+
+        ["<S-Tab>"] = cmp.mapping(function()
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+                feedkey("<Plug>(vsnip-jump-prev)", "")
+            end
+        end, {"i", "s"})
+        -- end of super Tab
+    }
+end
+
+
+return pluginKeys

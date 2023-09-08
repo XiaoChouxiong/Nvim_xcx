@@ -30,3 +30,6 @@ require("plugin-config.mason")
 
 -- mason-lspconfig LSP-config与mason间的配置插件
 require("plugin-config.mason-lspconfig")
+
+-- 代码补全
+require("plugin-config.cmp")
