@@ -403,6 +403,12 @@ vim.o.cmdheight = 1
 
 1、`:TSModuleInfo`查看模块使能情况
 
+2、插件的语言解析器下载位置：~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/
+
+注：`:TSModuleInfo` 会识别nvim自带的语言解析包，但是该插件虽然显示已经安装解析包，但只支持自己目录下的解析包，因此需要nvim-treesitter插件对该解析包进行安装(`:TSInstall`)
+
+> nvim自带解析包位置：/usr/lib/x86_64-linux-gnu/nvim/parser
+
 ### 代码高亮
 
 1、使用Packer安装该插件时，由于第一次无法识别到该插件的命令，而报错无法执行`更新支持的语言解析器`，重新执行一次`PackerSync`即可
@@ -425,8 +431,6 @@ vim.o.cmdheight = 1
 # 代码高亮开关
 :TSBufToggle highlight
 ```
-
-3、特别说明：markdown、bash文件无法正常使用语法高亮，因此我在配置文件中取消了指定文件类型的代码高亮
 
 ### 增量选择
 
