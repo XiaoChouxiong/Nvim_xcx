@@ -1,6 +1,6 @@
 -- 基础配置
 require("basic")
- 
+
 -- Packer 插件管理
 require("plugins")
 
@@ -33,3 +33,6 @@ require("plugin-config.mason-lspconfig")
 
 -- 代码补全
 require("plugin-config.cmp")
+
+-- gitgutter 项目的git差异显示
+require("plugin-config.gitgutter")

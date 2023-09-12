@@ -119,6 +119,14 @@ map("v", "<leader>/", '<Plug>Commentary', opt)
 map("n", "<leader>P", [[:let @+ = expand('%') | echo expand('%')<CR>]], opt)        -- 复制缓冲区相对路径到Windows剪切板，并打印
 map("n", "<leader>p", [[:let @+ = expand('%:p') | echo expand('%:p')<CR>]], opt)    -- 复制缓冲区绝对路径到Windows剪切板，并打印
 
+------------------ gitgutter git差异显示快捷键 -------------------------
+map("n", "<leader>ha", [[<cmd>silent! execute "!git add " .. expand('%') | echo "git add " .. expand('%')<CR>]], opt)        -- 将当前缓冲加入到git暂存区
+map("n", "<leader>hc", [[<cmd>silent! execute "!git checkout HEAD -- " .. expand('%') | echo "git checkout HEAD -- " .. expand('%')<CR>]], opt)        -- 将当前缓冲回退到上一版
+map("n", "<leader>hd", ":GitGutterDiffOrig<CR>", opt)
+map("n", "<leader>hj", ":GitGutterNextHunk<CR>", opt)
+map("n", "<leader>hk", ":GitGutterPrevHunk<CR>", opt)
+map("n", "<leader>hp", ":GitGutterPreviewHunk<CR>", opt)
+
 ------------------ nvim-cmp 自动补全快捷键 -------------------------
 -- nvim-cmp 自动补全
 pluginKeys.cmp = function(cmp)
