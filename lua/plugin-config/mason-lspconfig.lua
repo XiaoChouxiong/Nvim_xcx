@@ -48,5 +48,20 @@ mason_lspconfig.setup({
                 }
             }
         end,
+        ['pyright'] = function ()
+            lspconfig.pyright.setup {
+                -- 设置python解析器的路径
+                pythonPath = "/home/ubuntu/toolchain/python3.9/bin/python3.9",
+                analysis = {
+                    -- extraPaths = { "/path/to/extra/modules" }, -- 添加额外的模块路径
+                    diagnosticMode = "workspace", -- 设置诊断模式，可选值为"openFilesOnly"、"workspace"或"disabled"
+                    diagnosticSeverityOverrides = {
+                        reportUnusedImport = "warning" -- 将未使用的导入设置为警告级别
+                    }
+                },
+                -- 支持的文件类型
+                filetypes = {"python"},
+            }
+        end
     }
 })

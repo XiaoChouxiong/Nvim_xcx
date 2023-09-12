@@ -68,7 +68,7 @@ packer.startup({
             {
                 -- Language Server 管理器
                 "williamboman/mason.nvim",
-                commit = 'c811fbf09c7642eebb37d6694f1a016a043f6ed3',
+                -- commit = 'c811fbf09c7642eebb37d6694f1a016a043f6ed3',
             },
             {
                 -- mason.nvim 和 nvim-lspconfig 之间的互操作

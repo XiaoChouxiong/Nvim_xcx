@@ -556,6 +556,18 @@ make clean;bear make
 # 检查该文件是否有错误的地方，尤其是使用的编译器，可以修改为绝对路径
 ```
 
+### pyright（python语言服务）
+
+1、安装依赖工具
+
+```bash
+# 注意pyright基于的版本号，版本过低时使用mason可以安装但是使用会报错
+node -v
+"""
+v14.9.0
+"""
+```
+
 ## 代码注释
 
 1、快捷键说明
@@ -589,8 +601,6 @@ packer_compiled.lua文件是通过执行packer插件的compile命令生成的，
 总结来说，packer_compiled.lua文件是用于加速插件加载的，通过预先处理和保存插件配置信息，避免了每次启动nvim时都重新解析和处理nvim配置文件的开销。
 
 ## 特：NVIM内置快捷键
-
-1、
 
 ```bash
 # 光标
