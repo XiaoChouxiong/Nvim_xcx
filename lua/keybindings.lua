@@ -126,6 +126,7 @@ map("n", "<leader>hd", ":GitGutterDiffOrig<CR>", opt)
 map("n", "<leader>hj", ":GitGutterNextHunk<CR>", opt)
 map("n", "<leader>hk", ":GitGutterPrevHunk<CR>", opt)
 map("n", "<leader>hp", ":GitGutterPreviewHunk<CR>", opt)
+map("n", "<leader>hs", ":Telescope git_status<CR>", opt)
 
 ------------------ nvim-cmp 自动补全快捷键 -------------------------
 -- nvim-cmp 自动补全
@@ -136,7 +137,7 @@ pluginKeys.cmp = function(cmp)
     end
 
     local has_words_before = function()
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        local line, col = unpack(vim.api.nvim_win_get_cursor(vim.api.nvim_get_current_win()))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
 
@@ -157,25 +158,6 @@ pluginKeys.cmp = function(cmp)
             select = true,
             behavior = cmp.ConfirmBehavior.Replace
         }),
-        -- 如果窗口内容太多，可以滚动
-        ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
-        ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
-
-
-        -- 自定义代码段跳转到下一个参数
-        ["<C-l>"] = cmp.mapping(function(_)
-            if vim.fn["vsnip#available"](1) == 1 then
-                feedkey("<Plug>(vsnip-expand-or-jump)", "")
-            end
-        end, {"i", "s"}),
-
-        -- 自定义代码段跳转到上一个参数
-        ["<C-h>"] = cmp.mapping(function()
-            if vim.fn["vsnip#jumpable"](-1) == 1 then
-                feedkey("<Plug>(vsnip-jump-prev)", "")
-            end
-        end, {"i", "s"}),
-
         -- Super Tab
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -188,7 +170,6 @@ pluginKeys.cmp = function(cmp)
                 fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
             end
         end, {"i", "s"}),
-
         ["<S-Tab>"] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -196,7 +177,27 @@ pluginKeys.cmp = function(cmp)
                 feedkey("<Plug>(vsnip-jump-prev)", "")
             end
         end, {"i", "s"})
-        -- end of super Tab
+
+        -- -- 如果窗口内容太多，可以滚动
+        -- ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
+        -- ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
+
+        -- -- 自定义代码段跳转到下一个参数
+        -- ["<C-l>"] = cmp.mapping(function(_)
+        --     if vim.fn["vsnip#available"](1) == 1 then
+        --         feedkey("<Plug>(vsnip-expand-or-jump)", "")
+        --     end
+        -- end, {"i", "s"}),
+
+        -- -- 自定义代码段跳转到上一个参数
+        -- ["<C-h>"] = cmp.mapping(function()
+        --     if vim.fn["vsnip#jumpable"](-1) == 1 then
+        --         feedkey("<Plug>(vsnip-jump-prev)", "")
+        --     end
+        -- end, {"i", "s"}),
+
+
+        -- -- end of super Tab
     }
 end
 
