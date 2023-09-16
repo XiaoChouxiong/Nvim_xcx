@@ -36,3 +36,6 @@ require("plugin-config.cmp")
 
 -- gitgutter 项目的git差异显示
 require("plugin-config.gitgutter")
+
+-- 打开文件自动格式化操作
+require("autoFormat")

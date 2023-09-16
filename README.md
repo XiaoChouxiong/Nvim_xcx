@@ -506,6 +506,16 @@ map("v", "<C-Insert>", '"+y', opt)
 map("v", "<C-x>", '"+d', opt)
 ```
 
+## 文件格式化插件
+
+1、这个不属于插件，是使用lua编写的一段脚本，用于实现nvim打开指定文件后，可以实现文件结构格式化
+
+脚本位置：/home/ubuntu/.config/nvim/lua/autoFormat.lua
+
+2、目前支持的文件
+
+① JSON文件：需要依赖python实现结构格式化
+
 ## LSP语言包
 
 1、通过三个插件管理LSP语言服务
