@@ -514,7 +514,18 @@ map("v", "<C-x>", '"+d', opt)
 
 2、目前支持的文件
 
-① JSON文件：需要依赖python实现结构格式化
+① JSON文件：需要依赖`jq`实现结构格式化
+
+```bash
+# 安装jq
+sudo apt-get install jq
+
+# 对打开的文件进行结构格式化
+:%!jq --indent 4 .
+
+# 注：python也可以实现对文件的结构化操作，但是它会将中文转为Unicode编码格式，并且进行key排序
+%!python -m json.tool
+```
 
 ## LSP语言包
 

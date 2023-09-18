@@ -5,7 +5,7 @@ function autoFormat()
 
     -- 打开json文件时做格式化操作
     if file_type == "json" then
-        vim.cmd('%!python -m json.tool')
+        vim.cmd(':%!jq --indent 4 .')
     end
 end
 
