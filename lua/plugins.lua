@@ -94,7 +94,6 @@ packer.startup({
             commit = 'f7b97666ae36c7b3f262f3190dbcd7033845d985'
         }
 
-        ------------------- 测试插件
         -- 代码补全
         use {
             {
@@ -136,6 +135,8 @@ packer.startup({
                 commit = 'ebf6d6e83494cdd88a54a429340256f4dbb6a052'
             }
         }
+
+        ------------------- 测试插件
     end,
 
     config = {
