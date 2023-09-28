@@ -151,8 +151,10 @@ pluginKeys.cmp = function(cmp)
         }),
         -- 上一个
         ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
         -- 下一个
         ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
         -- 确认
         ["<CR>"] = cmp.mapping.confirm({
             select = true,
