@@ -6,7 +6,7 @@ end
 
 treesitter.setup({
     -- 安装插件时，配置自动安装的解析器
-    ensure_installed = {"markdown", "json", "vim", "lua", "c", "cpp", "verilog", "bash", "markdown_inline", "python", "query", "vimdoc"},
+    ensure_installed = {"markdown", "json", "vim", "lua", "c", "cpp", "verilog", "bash", "markdown_inline", "python", "query", "vimdoc", "v"},
     -- 启用代码高亮模块
     highlight = {
         enable = true,
