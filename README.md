@@ -585,11 +585,15 @@ sudo apt-get install bear
 
 ```bash
 # 1 可以修改Makefile，项目中所有用到的文件都编译到，这样便可以得到一个比较全的项目结构解析文件
+make clean;bear make
+或
 make clean;bear --append make
 
 # 2 项目根目录下生成了compile_commands.json
 
 # 3 将编译工具修改为绝对路径；删掉文件中无法识别的配置
+
+# 注：有时候bear make后，main主函数有警告抛出，会影响json的生成，可以不让主函数有操作逻辑，再尝试重新生成json文件
 ```
 
 ### pyright（python语言服务）
