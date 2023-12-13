@@ -86,6 +86,9 @@ alias vim='nvim'
 alias vi='nvim'
 alias v='nvim'
 """
+
+# 使环境变量生效
+source ~/.bashrc
 ```
 
 ## 克隆配置文件
@@ -572,6 +575,14 @@ X					# 卸载语言包
 lua_ls				# lua
 clangd				# c、c++
 ```
+
+6、mason安装好的语言解析包的位置
+
+```bash
+/home/ubuntu/.local/share/nvim/mason/packages
+```
+
+
 
 ### clangd（C语言服务）
 
