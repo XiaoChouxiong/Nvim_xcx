@@ -56,6 +56,10 @@ wsl --set-version Ubuntu-22.04 2
 
 ## 安装Neovim
 
+官方参考文档：https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-download
+
+### apt安装
+
 1、安装所需依赖包
 
 ```bash
@@ -70,6 +74,25 @@ sudo apt-get update
 sudo apt-get install neovim
 ```
 
+注：添加软件源失败原因
+
+```bash
+# 1 ubuntu中多个python版本导致python无法找到对应的gi模块
+	# 报错信息
+"""
+Traceback (most recent call last):
+File "/usr/bin/add-apt-repository", line 12, in <module>
+from softwareproperties.SoftwareProperties import SoftwareProperties, shortcut_handler
+File "/usr/lib/python3/dist-packages/softwareproperties/SoftwareProperties.py", line 67, in <module>
+from gi.repository import Gio
+File "/usr/lib/python3/dist-packages/gi/init.py", line 42, in <module>
+from . import _gi
+ImportError: cannot import name '_gi' from partially initialized module 'gi' (most likely due to a circular import) (/usr/lib/python3/dist-packages/gi/init.py)
+"""
+	# 解决思路：指定使用的python版本号
+sudo python3.6 /usr/bin/add-apt-repository ppa:neovim-ppa/unstable
+```
+
 3、检查nvim版本
 
 ```bash
@@ -82,6 +105,34 @@ nvim --version
 ```bash
 vim ~/.bashrc
 """
+alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
+"""
+
+# 使环境变量生效
+source ~/.bashrc
+```
+
+### AppImage可执行版
+
+说明：下载一个应用程序，给予运行权限，双击运行！无需安装！不需要改变依赖或系统配置。 （没有系统版本限制）
+
+```bash
+# 下载Nvim镜像文件
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+
+# 启动nvim
+chmod u+x nvim.appimage
+./nvim.appimage
+
+# 为可执行文件创建软链接
+sudo ln -s nvim.appimage ./nvim
+
+# 配置环境变量
+vim ~/.bashrc
+"""
+export PATH=/home/xxx/Apps/nvim:$PATH
 alias vim='nvim'
 alias vi='nvim'
 alias v='nvim'
@@ -718,6 +769,18 @@ v			行选择
 CTRL + w	删除命令行的光标前一个单词
 ```
 
+
+
+## 特：移植配置好的NVIM到新的服务器下
+
+```bash
+# 将以下目录直接拷贝到新的服务器的相同路径下即可
+/home/username/.config/nvim
+/home/username/.local/share/nvim
+```
+
+
+
 ## LazyVim插件参考
 
 1. `LazyVim`：一个基于 Lua 的插件管理器，用于管理和加载其他插件。
@@ -740,6 +803,8 @@ CTRL + w	删除命令行的光标前一个单词
 18. `neodev.nvim`：一个用于开发的插件集合，提供了一些实用的开发工具和功能。
 19. `nvim-notify`：一个用于在 Neovim 中显示通知消息的插件，可以用于显示编译错误、任务完成等信息。
 20. `persistence.nvim`：一个用于保存和恢复编辑器会话的插件，可以在关闭和重新打开编辑器时恢复上次的工作状态。
+
+
 
 
 
