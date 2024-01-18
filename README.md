@@ -58,6 +58,36 @@ wsl --set-version Ubuntu-22.04 2
 
 官方参考文档：https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-download
 
+> 注：Nvim版本必须在0.7以上，否则有些插件无法兼容；
+>
+> ​		Ubuntu18.04版本最高支持0.6，只能使用AppImage方式安装；
+
+### 查询系统版本
+
+```bash
+# 显示包含内核版本在内的系统信息
+lsb_release -a
+"""
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 22.04.2 LTS
+Release:        22.04
+Codename:       jammy
+"""
+
+# 显示包含内核版本信息的文件内容
+cat /proc/version
+"""
+Linux version 5.10.16.3-microsoft-standard-WSL2 (oe-user@oe-host) (x86_64-msft-linux-gcc (GCC) 9.3.0, GNU ld (GNU Binutils) 2.34.0.20200220) #1 SMP Fri Apr 2 22:23:49 UTC 2021
+"""
+
+# 显示当前系统正在运行的内核版本
+uname -r
+"""
+5.4.0-137-generic
+"""
+```
+
 ### apt安装
 
 1、安装所需依赖包
