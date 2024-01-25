@@ -137,6 +137,11 @@ packer.startup({
         }
 
         ------------------- 测试插件
+        -- 
+        use {
+            "preservim/tagbar",
+            -- commit = 'f7b97666ae36c7b3f262f3190dbcd7033845d985'
+        }
     end,
 
     config = {

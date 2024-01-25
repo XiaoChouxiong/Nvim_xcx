@@ -575,6 +575,8 @@ CTRL+[	打开折叠代码块
 
 ## Nvim复制内容脚本
 
+一 、 wsl模式
+
 1、这个不属于插件，是使用lua编写的一段脚本，用于实现nvim复制内容到windows下的粘贴板上
 
 脚本位置：/home/ubuntu/.config/nvim/lua/nvim_copy.lua
@@ -589,6 +591,50 @@ map("v", "<C-Insert>", '"+y', opt)
 # 在视图模式下，使用CTRL + x 实现内容剪切
 map("v", "<C-x>", '"+d', opt)
 ```
+
+3 实际实现（lua脚本）
+
+```lua
+if vim.fn.has('wsl') then
+    vim.g.clipboard = {
+        name='myClipboard',
+        copy={
+            ['+']='clip.exe',
+            ['*']={'tmux','load-buffer','-'},
+        },
+        paste = {
+            ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+            ['*']={'tmux','save-buffer','-'},
+        }
+    }
+end
+```
+
+二 、 远程服务器版
+
+注：由于我这边远程服务器无法实现ssh协议，实现文本传输到windows剪切板，因此使用命令的方式切换nvim鼠标状态（`vim.o.mouse = "a"`   与  `vim.o.mouse = ""`）
+
+1 lua脚本实现
+
+```lua
+--·在 nvim 中按下 CTRL + x 时切换鼠标模式   
+function ToggleMouseMode()                  
+  local current_mouse_setting = vim.o.mouse 
+  if current_mouse_setting == "" then       
+    vim.o.mouse = "a"                       
+  else                                      
+    vim.o.mouse = ""                        
+  end                                       
+end                                         
+```
+
+2 自定义快捷键
+
+```bash
+map("n", "<C-x>", ':lua ToggleMouseMode()<CR>', opt)
+```
+
+
 
 ## 文件格式化插件
 
@@ -699,6 +745,22 @@ node -v
 v14.9.0
 """
 ```
+
+## 文件结构栏
+
+1 安装ctags：文件结构解析器
+
+```bash
+sudo apt-get install exuberant-ctags
+```
+
+2 快捷键
+
+```bash
+CTRL + t		# 文件结构栏的 打开 / 关闭
+```
+
+
 
 ## 代码注释
 

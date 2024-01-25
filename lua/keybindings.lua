@@ -128,6 +128,9 @@ map("n", "<leader>hk", ":GitGutterPrevHunk<CR>", opt)
 map("n", "<leader>hp", ":GitGutterPreviewHunk<CR>", opt)
 map("n", "<leader>hs", ":Telescope git_status<CR>", opt)
 
+------------------ tagbar 文件结构 快捷键 --------------------------
+map("n", "<C-t>",":TagbarToggle<CR>", opt)
+
 ------------------ nvim-cmp 自动补全快捷键 -------------------------
 -- nvim-cmp 自动补全
 pluginKeys.cmp = function(cmp)
