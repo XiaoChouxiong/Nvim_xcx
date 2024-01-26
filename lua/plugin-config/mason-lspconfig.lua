@@ -1,5 +1,7 @@
 local status, mason_lspconfig = pcall(require, "mason-lspconfig")
 local _,lspconfig = pcall(require, "lspconfig")
+local user_home = os.getenv("HOME")
+local clangd_path = user_home.."/.local/share/nvim/mason/packages/clangd/clangd_16.0.2/bin/clangd"
 if not status then
     vim.notify("没有找到 mason-lspconfig")
     return
@@ -24,7 +26,7 @@ mason_lspconfig.setup({
             }
         end,
         ["clangd"] = function ()
-            local cmd = { "clangd" }
+            local cmd = { clangd_path }
             local clangd_args = {
                 "--background-index",       -- 用于后台索引：后台持续地分析代码
             }

@@ -746,6 +746,8 @@ v14.9.0
 """
 ```
 
+
+
 ## 文件结构栏
 
 1 安装ctags：文件结构解析器
@@ -758,6 +760,15 @@ sudo apt-get install exuberant-ctags
 
 ```bash
 CTRL + t		# 文件结构栏的 打开 / 关闭
+```
+
+3 在新的服务器上部署时，需要修改脚本的python绝对路径
+
+```bash
+vim /home/ubuntu/.config/nvim/lua/plugin-config/mason-lspconfig.lua
+"""
+pythonPath = "/home/ubuntu/toolchain/python3.9/bin/python3.9",
+"""
 ```
 
 
@@ -866,9 +877,11 @@ CTRL + w	删除命令行的光标前一个单词
 ## 特：移植配置好的NVIM到新的服务器下
 
 ```bash
-# 将以下目录直接拷贝到新的服务器的相同路径下即可
+# 将以下目录直接拷贝到新的服务器的相同路径下
 /home/username/.config/nvim
 /home/username/.local/share/nvim
+
+# 目前只支持C语言项目的解析，如果要支持python项目解析，修改LSP语言包的 mason-lspconfig.lua ，指向python的绝对路径
 ```
 
 
