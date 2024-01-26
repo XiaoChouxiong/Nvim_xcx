@@ -54,9 +54,19 @@ map("v", "J", ":move '>+1<CR>gv-gv", opt)
 map("v", "K", ":move '<-2<CR>gv-gv", opt)
 
 -- nvim 复制快捷键
-map("v", "<C-c>", '"+y', opt)
-map("v", "<C-Insert>", '"+y', opt)
-map("v", "<C-x>", '"+d', opt)
+local f = io.open('/proc/version', 'r')
+if f then
+    local version_info = f:read('*a')
+    f:close()
+    if version_info:match("WSL") then
+        map("v", "<C-c>", '"+y', opt)
+        map("v", "<C-Insert>", '"+y', opt)
+        map("v", "<C-x>", '"+d', opt)
+    else
+        -- nvim 进入 鼠标复制模式
+        map("n", "<C-x>", ':lua ToggleMouseMode()<CR>', opt)
+    end
+end
 
 ------------------- 浏览代码快捷键 ---------------------
 -- 上下滚动浏览
@@ -115,9 +125,19 @@ map("v", "<leader>/", '<Plug>CommentaryLine', opt)
 map("v", "<leader>/", '<Plug>Commentary', opt)
 
 ------------------ 获取缓冲区文件路径快捷键 -------------------------
--- map("n", "<leader>P", [[:let @+ = $PWD | echo $PWD<CR>]], opt)                   -- 复制项目绝对路径到Windows剪切板，并打印
-map("n", "<leader>P", [[:let @+ = expand('%') | echo expand('%')<CR>]], opt)        -- 复制缓冲区相对路径到Windows剪切板，并打印
-map("n", "<leader>p", [[:let @+ = expand('%:p') | echo expand('%:p')<CR>]], opt)    -- 复制缓冲区绝对路径到Windows剪切板，并打印
+local f = io.open('/proc/version', 'r')
+if f then
+    local version_info = f:read('*a')
+    f:close()
+    if version_info:match("WSL") then
+        -- map("n", "<leader>P", [[:let @+ = $PWD | echo $PWD<CR>]], opt)                   -- 复制项目绝对路径到Windows剪切板，并打印
+        map("n", "<leader>P", [[:let @+ = expand('%') | echo expand('%')<CR>]], opt)        -- 复制缓冲区相对路径到Windows剪切板，并打印
+        map("n", "<leader>p", [[:let @+ = expand('%:p') | echo expand('%:p')<CR>]], opt)    -- 复制缓冲区绝对路径到Windows剪切板，并打印
+    else
+        map("n", "<leader>P", [[:echo expand('%')<CR>]], opt)        -- 复制缓冲区相对路径到Windows剪切板，并打印
+        map("n", "<leader>p", [[:echo expand('%:p')<CR>]], opt)    -- 复制缓冲区绝对路径到Windows剪切板，并打印
+    end
+end
 
 ------------------ gitgutter git差异显示快捷键 -------------------------
 map("n", "<leader>ha", [[<cmd>silent! execute "!git add " .. expand('%') | echo "git add " .. expand('%')<CR>]], opt)        -- 将当前缓冲加入到git暂存区

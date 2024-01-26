@@ -94,6 +94,12 @@ packer.startup({
             commit = 'f7b97666ae36c7b3f262f3190dbcd7033845d985'
         }
 
+        -- 文件结构栏
+        use {
+            "preservim/tagbar",
+            commit = 'fcd31ec145bbc628b90371be381717a1498b7c12'
+        }
+
         -- 代码补全
         use {
             {
@@ -137,11 +143,6 @@ packer.startup({
         }
 
         ------------------- 测试插件
-        -- 
-        use {
-            "preservim/tagbar",
-            -- commit = 'f7b97666ae36c7b3f262f3190dbcd7033845d985'
-        }
     end,
 
     config = {
