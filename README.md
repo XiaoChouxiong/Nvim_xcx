@@ -144,6 +144,46 @@ alias v='nvim'
 source ~/.bashrc
 ```
 
+### 编译安装
+
+```bash
+# 安装依赖
+sudo apt-get install ninja-build gettext cmake unzip curl build-essential
+
+unzip neovim-0.10.0.zip
+
+# 将 nvim 安装在指定位置
+sudo make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=/opt/nvim
+sudo make install
+
+# 添加环境变量
+vim ~/.bashrc
+"""
+export PATH=$PATH:/opt/nvim/bin
+"""
+source ~/.bashrc
+
+# 验证
+nvim --version
+"""
+NVIM v0.10.0
+Build type: RelWithDebInfo
+LuaJIT 2.1.1713484068
+Run "nvim -V1 -v" for more info
+"""
+
+# 设置vim、vi都是用nvim打开
+vim ~/.bashrc
+"""
+alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
+"""
+source ~/.bashrc
+```
+
+
+
 ### AppImage可执行版
 
 说明：下载一个应用程序，给予运行权限，双击运行！无需安装！不需要改变依赖或系统配置。 （没有系统版本限制）

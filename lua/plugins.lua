@@ -23,7 +23,7 @@ packer.startup({
         -- bufferline 标签缓冲区
         use {
             'akinsho/bufferline.nvim',
-            commit = '417b303328118b6d836ae330142e88771c48a8a3',
+            commit = '0b2fd861eee7595015b6561dade52fb060be10c4',
             requires = {
                 {
                     'nvim-tree/nvim-web-devicons',
