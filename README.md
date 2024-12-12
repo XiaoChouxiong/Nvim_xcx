@@ -147,10 +147,13 @@ source ~/.bashrc
 ### 编译安装
 
 ```bash
+unzip neovim-0.10.0.zip
+mkdir -p neovim-0.10.0/.deps/build/
+
 # 安装依赖
 sudo apt-get install ninja-build gettext cmake unzip curl build-essential
-
-unzip neovim-0.10.0.zip
+tar -xzvf dependent_files.tar.gz
+mv downloads neovim-0.10.0/.deps/build/downloads
 
 # 将 nvim 安装在指定位置
 sudo make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=/opt/nvim
