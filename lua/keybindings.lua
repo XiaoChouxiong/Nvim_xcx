@@ -52,6 +52,8 @@ map("v", ">", ">gv", opt)
 -- 上下移动选中文本
 map("v", "J", ":move '>+1<CR>gv-gv", opt)
 map("v", "K", ":move '<-2<CR>gv-gv", opt)
+-- 文本对齐
+map("v", "<leader>,=", ":'<,'>Tabularize /,/<CR>", opt)     -- 选中行 按逗号对齐
 
 -- nvim 复制快捷键
 local f = io.open('/proc/version', 'r')

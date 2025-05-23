@@ -142,6 +142,13 @@ packer.startup({
             }
         }
 
+        -- 文本对齐
+        use {
+            "godlygeek/tabular",
+            commit = '12437cd1b53488e24936ec4b091c9324cafee311'
+        }
+
+
         ------------------- 测试插件
     end,
 

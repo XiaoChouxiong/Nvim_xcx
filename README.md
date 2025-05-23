@@ -873,6 +873,30 @@ map("n", "<leader>P", [[:let @+ = expand('%') | echo expand('%')<CR>]], opt)
 map("n", "<leader>p", [[:let @+ = expand('%:p') | echo expand('%:p')<CR>]], opt)
 ```
 
+## 文本对齐 tabular
+
+1、定义文本对齐快捷键
+
+```bash
+vim ~/.config/nvim/lua/keybindings.lua
+
+# 选中行 按逗号对齐
+map("v", "<leader>,=", ":'<,'>Tabularize /,/<CR>", opt)
+```
+
+2、指令说明
+
+```bash
+# 对齐等号 =
+:Tabularize /=/
+
+# 对齐逗号 ,
+:Tabularize /,/
+
+# 选中区域对齐逗号 ,
+:'<,'>Tabularize /,/
+```
+
 ## *plugin/packer_compiled.lua
 
 packer_compiled.lua文件是通过执行packer插件的compile命令生成的，它会根据你在nvim配置文件中定义的插件列表和配置进行处理。该文件包含了插件的配置信息和加载顺序，以及一些性能优化的指令。

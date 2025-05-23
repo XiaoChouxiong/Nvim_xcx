@@ -39,3 +39,6 @@ require("plugin-config.gitgutter")
 
 -- 打开文件自动格式化操作
 require("autoFormat")
+
+-- 文本对齐
+require("plugin-config.tabular")
