@@ -191,6 +191,8 @@ source ~/.bashrc
 
 说明：下载一个应用程序，给予运行权限，双击运行！无需安装！不需要改变依赖或系统配置。 （没有系统版本限制）
 
+1-1 可执行运行版本
+
 ```bash
 # 下载Nvim镜像文件
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
@@ -214,6 +216,17 @@ alias v='nvim'
 # 使环境变量生效
 source ~/.bashrc
 ```
+
+1-2 手动解压 AppImage
+
+```bash
+chmod +x nvim.appimage
+./nvim.appimage --appimage-extract
+
+ls ./squashfs-root/usr/bin/nvim
+```
+
+
 
 ## 克隆配置文件
 
@@ -454,6 +467,8 @@ map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 
 1、安装插件依赖
 
+1-1 方式一：安装 plenary & rg (apt)
+
 ```bash
 # 检查依赖情况，我选择将plenary与ripgrep集成到插件中
 :checkhealth telescope
@@ -466,6 +481,17 @@ map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 sudo add-apt-repository ppa:x4121/ripgrep
 sudo apt-get update
 sudo apt install ripgrep
+```
+
+1-2 方式二：安装 rg(官方提供可执行文件)
+
+```bash
+下载链接：https://github.com/BurntSushi/ripgrep/releases
+文件名：ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
+
+# 查看可执行文件
+tar -xzvf ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
+ls ripgrep-13.0.0-x86_64-unknown-linux-musl/rg
 ```
 
 2、插件内置快捷键
